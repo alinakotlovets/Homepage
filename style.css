@@ -56,6 +56,7 @@
     --base-color-brand--pale: #ce7643;
     --text-color--text-primary: var(--base-color-brand--text-darker);
     --transition: 300ms ease-in-out;
+    --border-radius: 100px;
 }
 
 
@@ -135,7 +136,7 @@ header nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 100px;
+    border-radius: var(--border-radius);
     transition: background-color var(--transition);
 }
 
@@ -167,7 +168,7 @@ header nav ul {
 
 h1 {
     font-family: var(--text--font-family--heading);
-    color: var(--base-color-secondary);
+    color: var(--base-color-brand--text-darker);
     font-size: 88px;
     letter-spacing: -.01ch;
     margin-top: 0;
@@ -176,9 +177,22 @@ h1 {
     line-height: 0.95;
 }
 
+h2 {
+    font-family: var(--text--font-family--heading);
+    font-size: 72px;
+    font-weight: 700;
+}
+
+h3 {
+    font-family: var(--text--font-family--heading);
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1;
+}
+
 h4 {
-    font-family: var(--text--font-family-secondary);
     font-size: 20px;
+    font-family: var(--text--font-family-secondary);
     line-height: 1.2;
     color: var(--base-color-brand--text-darker);
 }
@@ -197,6 +211,7 @@ h4 {
     position: relative;
     width: 100%;
     height: 130px;
+    margin-bottom: 160px;
 }
 
 .marquee-box {
@@ -208,7 +223,7 @@ h4 {
 
 .marquee-box li {
     padding: 8px 24px;
-    border-radius: 100px;
+    border-radius: var(--border-radius);
     color: white;
     font-weight: 600;
     font-size: 18px;
@@ -272,3 +287,236 @@ h4 {
 .safron-bg {
     background-color: var(--base-color-brand--safron);
 }
+
+.about-me {
+    background-color: var(--base-color-secondary);
+    position: relative;
+    height: 876px;
+    margin-bottom: 40px;
+}
+
+.about-me h4,
+.about-me h2,
+.about-me h3,
+.about-me p {
+    color: var(--base-color-white);
+}
+
+.about-me img {
+    width: 450px;
+    height: 450px;
+    border-radius: 25px;
+    object-fit: cover;
+    position: absolute;
+    z-index: 1;
+    top: 20%;
+    left: 16%;
+
+}
+
+
+.about-me-right-text-box {
+    background-color: var(--base-color-brand--umber);
+    border-radius: 25px;
+    padding: 18px;
+    width: 425px;
+    position: absolute;
+    left: 17%;
+    top: 58%;
+    z-index: 3;
+}
+
+.about-me-title {
+    position: absolute;
+    z-index: 2;
+    left: 3%;
+    top: 24%;
+    font-weight: 700;
+    width: 270px;
+    line-height: 1;
+}
+
+.about-me-title span {
+    display: block;
+}
+
+.about-me-title span:nth-child(2) {
+    text-align: end;
+}
+
+.about-me-left-box {
+    position: absolute;
+    top: 25%;
+    left: 55%;
+    max-width: 700px;
+    z-index: 5;
+}
+
+.about-me::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -4%;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1442 151"><path d="M0.775391 150.25C0.775391 150.25 0.775391 68.4443 0.775391 68.3292C0.775391 68.2849 13.9613 68.4047 21.028 67.4305C37.2691 65.199 56.9904 59.558 71.2921 51.6234C85.5938 43.6888 98.3458 35.1875 113.568 30.9369C132.307 25.7032 152.701 26.8722 170.722 34.2842C173.423 35.3912 176.089 36.569 178.745 37.7822C182.279 39.4116 185.777 41.103 189.248 42.8476C189.416 42.9361 189.593 43.0158 189.762 43.1044C190.426 43.4409 191.09 43.7774 191.754 44.105C203.435 50.0117 215.071 56.1043 227.309 60.7889C261.589 73.9305 296.311 75.1703 330.582 65.4912C365.004 55.9095 399.133 35.4886 433.262 22.6215C467.392 9.74553 501.512 4.42335 535.641 9.03709C583.258 15.4751 625.206 40.9436 670.086 56.2549C715.081 71.6015 758.048 70.6717 801.414 49.9231C831.328 35.6037 860.401 14.1822 893.521 15.7496C924.205 17.2108 949.904 38.1276 977.648 51.3135C1002.67 63.2065 1031.02 69.0423 1058.4 64.8093C1122.3 54.9177 1169.79 -5.30889 1237.49 0.606611C1296.87 5.79596 1345.3 46.195 1401.41 62.312C1413.19 65.6949 1425.33 67.8733 1437.6 68.2541C1437.76 68.2541 1441.49 68.3641 1441.49 68.3287V150.249L0.775391 150.25Z" fill="%23fff6ee"/></svg>') no-repeat bottom;
+    background-size: 101% auto;
+    z-index: 2;
+}
+
+
+.about-me::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -30%;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1442 151"><path d="M0.775391 150.25C0.775391 150.25 0.775391 68.4443 0.775391 68.3292C0.775391 68.2849 13.9613 68.4047 21.028 67.4305C37.2691 65.199 56.9904 59.558 71.2921 51.6234C85.5938 43.6888 98.3458 35.1875 113.568 30.9369C132.307 25.7032 152.701 26.8722 170.722 34.2842C173.423 35.3912 176.089 36.569 178.745 37.7822C182.279 39.4116 185.777 41.103 189.248 42.8476C189.416 42.9361 189.593 43.0158 189.762 43.1044C190.426 43.4409 191.09 43.7774 191.754 44.105C203.435 50.0117 215.071 56.1043 227.309 60.7889C261.589 73.9305 296.311 75.1703 330.582 65.4912C365.004 55.9095 399.133 35.4886 433.262 22.6215C467.392 9.74553 501.512 4.42335 535.641 9.03709C583.258 15.4751 625.206 40.9436 670.086 56.2549C715.081 71.6015 758.048 70.6717 801.414 49.9231C831.328 35.6037 860.401 14.1822 893.521 15.7496C924.205 17.2108 949.904 38.1276 977.648 51.3135C1002.67 63.2065 1031.02 69.0423 1058.4 64.8093C1122.3 54.9177 1169.79 -5.30889 1237.49 0.606611C1296.87 5.79596 1345.3 46.195 1401.41 62.312C1413.19 65.6949 1425.33 67.8733 1437.6 68.2541C1437.76 68.2541 1441.49 68.3641 1441.49 68.3287V150.249L0.775391 150.25Z" fill="%23371009"/></svg>') no-repeat bottom;
+    background-size: 101% auto;
+    z-index: 2;
+}
+
+
+.projects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 120px;
+}
+
+.projects .container {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.project-box {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.projects img {
+    width: 100%;
+    max-width: 370px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+.project-box-item {
+    width: 400px;
+    height: 500px;
+    text-align: start;
+    align-items: center;
+    justify-content: start;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 20px;
+    padding: 30px 15px;
+    transition: transform var(--transition);
+}
+
+.project-box-item:hover,
+.project-box-item:focus {
+    transform: scale(1.01);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+.pink {
+    background-image: linear-gradient(#ffc2c3, #f8767f);
+}
+
+.brown {
+    background-image: linear-gradient(#e1a687, #9f5d46);
+}
+
+
+.yellow {
+    background-image: linear-gradient(#f6c07b, #dd8041);
+}
+
+.projects a {
+    background-color: var(--base-color-white);
+    border: 1px solid var(--base-color-brand--umber);
+    font-family: var(--text--font-family--heading);
+    font-weight: 600;
+    padding: 0 15px 3px 15px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition);
+}
+
+
+.projects ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    gap: 40px;
+}
+
+.projects a:hover {
+    background-color: var(--base-color-secondary);
+    color: var(--base-color-white);
+}
+
+.projects h2 {
+    margin-bottom: 60px;
+}
+
+
+.footer-wave {
+    overflow: hidden;
+    position: relative;
+    height: 100px;
+}
+
+.wave-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 200%;
+    animation: wave 10s linear infinite;
+}
+
+.wave-track svg {
+    width: 50%;
+}
+
+.wave-track svg:nth-child(2) {
+    margin-left: -2px;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+.footer-content-box {
+    background-color: var(--base-color-secondary);
+    height: 300px;
+}
+
+
+
