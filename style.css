@@ -435,16 +435,17 @@ h4 {
 
 
 .pink {
-    background-image: linear-gradient(#ffc2c3, #f8767f);
+    border: 3px solid #f8767f;
 }
 
 .brown {
-    background-image: linear-gradient(#e1a687, #9f5d46);
+    border: 3px solid #9f5d46;
+
 }
 
 
 .yellow {
-    background-image: linear-gradient(#f6c07b, #dd8041);
+    border: 3px solid #dd8041;
 }
 
 .projects a {
@@ -467,7 +468,7 @@ h4 {
     justify-content: center;
     align-items: center;
     margin-top: 10px;
-    gap: 40px;
+    gap: 80px;
 }
 
 .projects a:hover {
@@ -479,11 +480,14 @@ h4 {
     margin-bottom: 60px;
 }
 
+.projects h4 {
+    padding-left: 4px;
+}
 
 .footer-wave {
     overflow: hidden;
     position: relative;
-    height: 100px;
+    height: 102px;
 }
 
 .wave-track {
@@ -516,7 +520,49 @@ h4 {
 .footer-content-box {
     background-color: var(--base-color-secondary);
     height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-direction: column;
 }
 
 
+.social-link {
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    background-color: var(--base-color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color var(--transition);
+}
 
+
+.social-link img {
+    width: 20px;
+    height: 20px;
+    transition: color var(--transition);
+}
+
+.social-link:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.social-link:hover {
+    background-color: var(--base-color-brand--safron);
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+footer h2 {
+    font-family: var(--text--font-family--heading);
+    color: var(--base-color-white);
+    text-transform: uppercase;
+}
