@@ -37,13 +37,28 @@ burgerBtn.addEventListener('click', function () {
     document.querySelector('body').classList.add("hidden-overflow");
 })
 
+
 document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function () {
-        document.querySelector('nav').style.display = 'none';
-        document.querySelector('body').classList.remove("hidden-overflow");
-        document.querySelector('.close-mobile-menu-btn').style.display = 'none';
-    })
-})
+    link.addEventListener('click', function (e) {
+        const a = this.querySelector('a');
+        if (!a) return;
+
+        const targetId = a.getAttribute('href').substring(1);
+        const targetEl = document.getElementById(targetId);
+
+        if (window.innerWidth < 768) {
+            document.querySelector('nav').style.display = 'none';
+            document.querySelector('body').classList.remove("hidden-overflow");
+            document.querySelector('.close-mobile-menu-btn').style.display = 'none';
+        }
+
+        if (targetEl) {
+            const topOffset = targetEl.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({top: topOffset, behavior: 'smooth'});
+        }
+    });
+});
+
 
 document.querySelector('.close-mobile-menu-btn').addEventListener('click', function () {
     document.querySelector('nav').style.display = 'none';
