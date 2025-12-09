@@ -56,7 +56,9 @@
     --base-color-brand--pale: #ce7643;
     --text-color--text-primary: var(--base-color-brand--text-darker);
     --transition: 300ms ease-in-out;
-    --border-radius: 100px;
+    --border-radius-lg: 100px;
+    --border-radius-sm: 25px;
+    --carts-border: 3px solid;
 }
 
 
@@ -112,6 +114,11 @@ header {
     transform: translateY(0)
 }
 
+
+.hidden-overflow {
+    overflow: hidden;
+}
+
 .hide {
     transform: translateY(-100%)
 }
@@ -120,7 +127,7 @@ header {
     transform: translateY(0);
 }
 
-header nav ul {
+.nav-menu-list {
     display: flex;
     gap: 10px;
 }
@@ -136,8 +143,9 @@ header nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-lg);
     transition: background-color var(--transition);
+    white-space: nowrap;
 }
 
 .nav-link a {
@@ -157,6 +165,17 @@ header nav ul {
 .nav-link:focus {
     background-color: var(--base-color-secondary);
     color: var(--base-color-white);
+}
+
+.burger-menu-button {
+    width: 40px;
+    display: none;
+}
+
+
+.close-mobile-menu-btn {
+    width: 40px;
+    display: none;
 }
 
 .hero {
@@ -198,12 +217,45 @@ h4 {
 }
 
 
+@keyframes show-title {
+    from {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        will-change: transform
+
+    }
+
+}
+
+
+@keyframes show-text {
+    from {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        will-change: transform
+    }
+
+}
+
+
 .hero-title {
     padding-top: 20%;
+    animation: show-title 600ms ease-in-out;
 }
 
 .hero-text {
     padding-top: 15px;
+    animation: show-text 600ms ease-in-out;
 }
 
 .marquee {
@@ -223,7 +275,7 @@ h4 {
 
 .marquee-box li {
     padding: 8px 24px;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-lg);
     color: white;
     font-weight: 600;
     font-size: 18px;
@@ -305,7 +357,7 @@ h4 {
 .about-me img {
     width: 450px;
     height: 450px;
-    border-radius: 25px;
+    border-radius: var(--border-radius-sm);
     object-fit: cover;
     position: absolute;
     z-index: 1;
@@ -317,7 +369,7 @@ h4 {
 
 .about-me-right-text-box {
     background-color: var(--base-color-brand--umber);
-    border-radius: 25px;
+    border-radius: var(--border-radius-sm);
     padding: 18px;
     width: 425px;
     position: absolute;
@@ -431,21 +483,22 @@ h4 {
 .project-box-item:focus {
     transform: scale(1.01);
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+    will-change: transform
 }
 
 
 .pink {
-    border: 3px solid #f8767f;
+    border: var(--carts-border) #f8767f;
 }
 
 .brown {
-    border: 3px solid #9f5d46;
+    border: var(--carts-border) #9f5d46;
 
 }
 
 
 .yellow {
-    border: 3px solid #dd8041;
+    border: var(--carts-border) #dd8041;
 }
 
 .projects a {
@@ -458,7 +511,7 @@ h4 {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-lg);
     transition: background-color var(--transition);
 }
 
@@ -565,4 +618,213 @@ footer h2 {
     font-family: var(--text--font-family--heading);
     color: var(--base-color-white);
     text-transform: uppercase;
+}
+
+
+@media screen and (max-width: 1199.9px) {
+    h1 {
+        font-size: 60px;
+    }
+
+    h2 {
+        font-size: 45px;
+    }
+
+    h3 {
+        font-size: 28px;
+    }
+
+    .about-me img {
+        width: 300px;
+        height: 300px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .about-me-title {
+        width: 150px;
+        left: 28%;
+    }
+
+    .about-me-right-text-box {
+        padding: 12px;
+        width: 283px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 44%;
+    }
+
+    .about-me-left-box {
+        position: absolute;
+        top: 61%;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 600px;
+        z-index: 5;
+    }
+
+    .project-box {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .project-box-item {
+        width: 345px;
+        height: 450px;
+    }
+
+    .footer-wave {
+        overflow: hidden;
+        position: relative;
+        height: 79px;
+    }
+
+    .hero-title {
+        padding-top: 20%;
+    }
+}
+
+@media screen and (max-width: 767.9px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 35px;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+
+    header .container {
+        padding: 20px 12px;
+    }
+
+
+    .nav-link {
+        font-size: 12px;
+    }
+
+
+    .about-me {
+        height: 700px;
+    }
+
+    .about-me:before {
+        height: 218px;
+    }
+
+    .about-me::after {
+        height: 134px;
+        bottom: -2%;
+    }
+
+    .about-me img {
+        width: 200px;
+        height: 200px;
+
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .about-me-title {
+        left: 25%;
+        transform: translateX(-50%);
+        top: 24%;
+        width: 125px;
+    }
+
+    .about-me-right-text-box {
+        padding: 10px;
+        width: 172px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 38%;
+        z-index: 3;
+    }
+
+    .about-me-left-box {
+        position: absolute;
+        top: 58%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5;
+        min-width: 250px;
+    }
+
+
+    .hero-title {
+        padding-top: 50%;
+    }
+
+
+    .project-box-item {
+        width: 285px;
+        height: 400px;
+    }
+
+    .marquee-box li {
+        padding: 7px 15px;
+        font-size: 12px;
+    }
+
+    .marquee {
+        height: 100px;
+        margin-bottom: 125px;
+    }
+
+    .project-box {
+        grid-template-columns: 1fr;
+    }
+
+    footer h2 {
+        font-size: 42px;
+    }
+
+    .footer-wave {
+        height: 38px;
+    }
+
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: linear-gradient(#f46c75, #ffa5aa 50%);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .close-mobile-menu-btn {
+        position: absolute;
+        left: 85%;
+        top: 20px;
+    }
+
+    .nav-menu-list {
+        margin-top: 100px;
+        flex-direction: column;
+        gap: 25px;
+        padding: 0 10px;
+    }
+
+}
+
+@media screen and (max-width: 365px) {
+    .footer-wave {
+        height: 28px;
+    }
 }
